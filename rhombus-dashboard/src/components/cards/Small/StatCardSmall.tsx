@@ -10,7 +10,7 @@ type StatCardSmallProps = {
 
 const StatCardSmall = ({ value, icon, subtitle, percentage, color }: StatCardSmallProps) => {
   return (
-    <div className="w-1/3 p-6 bg-white rounded-xl shadow-md">
+    <div className="w-1/4 p-6 bg-white rounded-xl shadow-md">
       <div className ="flex flex-col items-start">
           <div className="flex justify-between items-center w-full">
             <div className="text-2xl font-bold text-gray-800">{value}</div>
@@ -21,7 +21,7 @@ const StatCardSmall = ({ value, icon, subtitle, percentage, color }: StatCardSma
             {subtitle}
           </div>
 
-          <div className="w-full text-sm text-gray-600">
+          <div className="w-full text-sm text-gray-600 mb-2">
             <ProgressBar percentage={percentage} color = {color} />
           </div>
         </div>

@@ -8,7 +8,7 @@ import StatCardLg from './cards/Large/StatCardLg';
 
 const Dashboard = () => {
     return (
-        <div className="">
+        <div className="flex flex-col gap-3">
 
             {/* Small Stat Card Row*/}
             <div className="flex justify-center gap-3 ">
@@ -43,26 +43,26 @@ const Dashboard = () => {
             </div>
 
             {/* Large Stat Card Row */}
-            <div className="flex justify-center ">
+            <div className="flex justify-center gap-3 ">
                 <StatCardLg
-                    title="General Statistics"
-                    subtitle="Overview of your business performance"
-                    chartType="bar"
-                    chartData={{
-                        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
-                        datasets: [
-                            {
-                                label: 'Revenue',
-                                data: [1200, 1900, 3000, 5000, 2000, 3000],
-                                backgroundColor: 'rgba(75, 192, 192, 0.6)',
-                            },
-                            {
-                                label: 'Expenses',
-                                data: [800, 1200, 1500, 2000, 1000, 1500],
-                                backgroundColor: 'rgba(255, 99, 132, 0.6)',
-                            },
-                        ],
-                    }}
+                    title="Emails Sent Total"
+                    subtitle="March 2020"
+                    chartType="pie"
+                    chartData={[
+                        { label: 'Sent', value: 300 },
+                        { label: 'Failed', value: 50 },
+                        { label: 'Pending', value: 150 }
+                      ]}
+                />
+                <StatCardLg
+                    title="Emails Sent Total"
+                    subtitle="March 2020"
+                    chartType="pie"
+                />
+                <StatCardLg
+                    title="Emails Sent Total"
+                    subtitle="March 2020"
+                    chartType="pie"
                 />
             </div>
         </div>
