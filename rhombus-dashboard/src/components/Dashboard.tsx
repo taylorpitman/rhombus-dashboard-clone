@@ -8,10 +8,10 @@ import StatCardLg from './cards/Large/StatCardLg';
 
 const Dashboard = () => {
     return (
-        <div className="flex flex-col gap-3">
+        <div className="flex flex-col gap-3  w-full">
 
             {/* Small Stat Card Row*/}
-            <div className="flex justify-center gap-3 ">
+            <div className="flex justify-center gap-3  md:flex-nowrap flex-wrap">
                     <StatCardSmall
                         value="$22,880.50"
                         subtitle="Won from 18 Deals"
@@ -43,28 +43,64 @@ const Dashboard = () => {
             </div>
 
             {/* Large Stat Card Row */}
-            <div className="flex justify-center gap-3 ">
+            <div className="flex justify-center gap-3 md:flex-nowrap flex-wrap">
                 <StatCardLg
                     title="Emails Sent Total"
                     subtitle="March 2020"
                     chartType="pie"
-                    chartData={[
-                        { label: 'Sent', value: 300 },
-                        { label: 'Failed', value: 50 },
-                        { label: 'Pending', value: 150 }
+                    pieData={[
+                        { label: 'send', value: 860 },
+                        { label: 'open', value: 234 },
+                        { label: 'spam', value: 730 }
                       ]}
                 />
                 <StatCardLg
-                    title="Emails Sent Total"
-                    subtitle="March 2020"
-                    chartType="pie"
+                    title="Income Amounts"
+                    chartType="bar"
+                    barData={[
+                        { day: 'Mon', lastMonth: 400, lastWeek: 300, thisWeek: 200 },
+                        { day: 'Tue', lastMonth: 300, lastWeek: 200, thisWeek: 100 },
+                        { day: 'Wed', lastMonth: 200, lastWeek: 100, thisWeek: 50 },
+                        { day: 'Thu', lastMonth: 500, lastWeek: 400, thisWeek: 300 },
+                        { day: 'Fri', lastMonth: 600, lastWeek: 500, thisWeek: 400 },
+                    ]}
+                    target={500}
                 />
                 <StatCardLg
-                    title="Emails Sent Total"
-                    subtitle="March 2020"
-                    chartType="pie"
+                    title="Revenue"
+                    subtitle="March"
+                    chartType="line"
+                    lineData={[
+                        { value: 310 },
+                        { value: 300 },
+                        { value: 285 },
+                        { value: 270 },
+                        { value: 260 },
+                        { value: 250 },
+                        { value: 255 },
+                        { value: 265 },
+                        { value: 270 },
+                        { value: 280 },
+                        { value: 295 },
+                        { value: 310 },
+                        { value: 300 },
+                        { value: 320 },
+                        { value: 340 },
+                        { value: 360 },
+                        { value: 375 },
+                        { value: 390 },
+                        { value: 405 },
+                        { value: 420 },
+                        { value: 415 },
+                        { value: 410 },
+                        { value: 400 },
+                        { value: 390 },
+                        { value: 380 },
+                    ]}
                 />
             </div>
+
+            
         </div>
     );
 }

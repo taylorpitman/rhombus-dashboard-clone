@@ -37,7 +37,7 @@ import {
     outerRadius,
     percent,
   }: LabelProps) => {
-    const radius = innerRadius + (outerRadius - innerRadius) * 0.5;
+    const radius = innerRadius + (outerRadius - innerRadius) * 0.50;
     const x = cx + radius * Math.cos(-midAngle * RADIAN);
     const y = cy + radius * Math.sin(-midAngle * RADIAN); 
     return (
@@ -47,7 +47,7 @@ import {
           fill="white"
           textAnchor={x > cx ? 'start' : 'end'}
           dominantBaseline="central"
-          className="text-sm  font-semibold"
+          className="text-sm font-semibold"
         >
           {`${(percent * 100).toFixed(0)}%`}
         </text>
@@ -57,25 +57,40 @@ import {
   
   const CustomPieChart = ({ data, colors = ['#FF6384', '#36A2EB', '#FFCE56'] }: PieChartProps) => {
     return (
-      <ResponsiveContainer width="100%" height={212}>
-        <PieChart>
-          <Pie
-            data={data}
-            cx="50%"
-            cy="50%"
-            labelLine={false}
-            label={renderCustomizedLabel}
-            outerRadius={80}
-            fill="#8884d8"
-            dataKey="value"
-          >
-            {data.map((entry, index) => (
-              <Cell key={`cell-${index}`} fill={colors[index % colors.length]} />
-            ))}
-          </Pie>
-          <Tooltip />
-        </PieChart>
-      </ResponsiveContainer>
+      <div className="w-full ">
+        <ResponsiveContainer width="100%" height={210}>
+          <PieChart>
+            <Pie
+              data={data}
+              cx="50%"
+              cy="50%"
+              labelLine={false}
+              label={renderCustomizedLabel}
+              outerRadius={90}
+              fill="#8884d8"
+              dataKey="value"
+            >
+              {data.map((entry, index) => (
+                <Cell key={`cell-${index}`} fill={colors[index % colors.length]} />
+              ))}
+            </Pie>
+          </PieChart>
+        </ResponsiveContainer>
+
+        <div className="w-full flex justify-between text-sm mt-1">
+          
+          {data.map((entry, index) => (
+            <div key={`legend-${index}`} className="flex justify-between items-center gap-2">
+              <span
+                className="w-2 h-1.5 rounded-full"
+                style={{ backgroundColor: colors[index % colors.length] }}
+              />
+              <span>{entry.value} {entry.label}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+
     )
   }
 export default CustomPieChart;
